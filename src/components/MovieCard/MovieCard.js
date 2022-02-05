@@ -15,9 +15,11 @@ const MovieCard = (props) => {
           <div className="card-info">
             <h4>{data.title}</h4>
             <p>{data.vote_average}/10 <i className='fa fa-thumbs-up'></i></p>
+            <p className='average-class'>{new Date(data.release_date).getFullYear()}</p>
           </div>
         </div>
       </div>
+      <div className='movie-over'><h2>overview</h2> <p>{data.overview}</p></div>
       </Link>
     </div>
   );

@@ -42,12 +42,25 @@
   color: $font-secondary;
 }
 
-
 .section-right {
 
   img {
-    width: 300px;
-    height: 420px;
+    width: 310px;
+    height: 430px;
     margin-bottom: 60px;
   }
+}
+
+.fa-star {
+  color:#ff9e00;
+}
+
+.fa-thumbs-up {
+  color:#fafafa;
+}
+.fa-film {
+  color:rgb(191, 213, 214);
+}
+.fa-calendar {
+  color:peachpuff;
 }

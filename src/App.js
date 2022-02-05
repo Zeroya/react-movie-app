@@ -15,8 +15,9 @@ function App() {
         <div className="container">
           <Routes>
           <Route path="/" exact element={<Home />} />
+          <Route path="/popular" element={<Home />} />
           <Route path="/movie/:id" element={<MovieDetail />} />
-          <Route element={<PageNotFound />} />
+          <Route path="*" element={<PageNotFound />} />
           </Routes>
         </div>
         <Footer />

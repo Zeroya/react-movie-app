@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import './MovieDetail.scss'
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchAsyncDetail, getSelectedDetail } from '../../features/movies/movieSlice';
+import { fetchAsyncDetail, getSelectedDetail, removeSelectedMovies } from '../../features/movies/movieSlice';
 
 const MovieDetail = () => {
   const {id} = useParams();
@@ -11,6 +11,7 @@ const MovieDetail = () => {
   console.log(data);
   useEffect(() => {
     dispatch(fetchAsyncDetail(id));
+    return () => {dispatch(removeSelectedMovies());}
   }, [dispatch, id]);
   
   const genres_const = data?.genres?.map(el => el.name);
@@ -21,6 +22,10 @@ const MovieDetail = () => {
 
   return (
     <div className='movie-section'>
+      {Object.keys(data).length === 0 ?
+(<div>...Loading</div>)
+      :(
+      <>
       <div className='section-left'>
         <div className='movie-title'>{data.title}</div>
         <div className='movie-rating'>
@@ -41,7 +46,7 @@ const MovieDetail = () => {
         <div className='movie-info'>
         <div>
           <span>Homepage :</span>
-          <span>{data.homepage}</span>
+          <span><a href={data.homepage} style={{color: "#79b8f3"}}>{data.homepage}</a></span>
         </div>
         <div>
           <span>Production companies :</span>
@@ -71,6 +76,7 @@ const MovieDetail = () => {
       <div className='section-right'>
         <img src={`https://image.tmdb.org/t/p/w500/${data.poster_path}`} alt={data.title} />
       </div>
+      </> )}
     </div>
   );
   
