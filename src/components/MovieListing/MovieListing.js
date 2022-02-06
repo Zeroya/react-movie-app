@@ -50,14 +50,14 @@ const MovieListing = () => {
           <h2>Popular Movies</h2>
           <div className="movie-container">{renderMovies}</div>
         </div>
-        <div className="toprated-list">
+        {/*  <div className="toprated-list">
           <h2>Top Rated Movies</h2>
           <div className="movie-container">{renderTopRated}</div>
         </div>
         <div className="toprated-list">
           <h2>Search</h2>
           <div className="movie-container">{renderSearch}</div>
-        </div>
+        </div> */}
     </div>
   )
 }
