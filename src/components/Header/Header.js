@@ -25,13 +25,13 @@ const Header = () => {
   return (
     <div>
       <div className="header">
-      
+        
           <div className="logo">
           <Link to="/">Movie Vikto App</Link>
           </div>
-
-          <div className='panel'> 
-          <div className='dropdown'>
+      
+          <div className='panel' > 
+          <div className='dropdown' style={{margin:'0px 20px 0px 75px'}}>
       <div className='dropdown-btn' onClick={e => setIsActive(!isActive)}>Choose One &#11167; </div>
       {isActive && (
         <div className='dropdown-content' onClick={e => setIsActive(false)}>
@@ -57,6 +57,7 @@ const Header = () => {
             </form>
           </div>
       )}
+    
         <div className="user-image">
           <img src={user} alt="user" />
         </div>
