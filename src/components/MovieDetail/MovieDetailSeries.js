@@ -2,15 +2,15 @@ import React, { useEffect } from 'react';
 import './MovieDetail.scss'
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchAsyncDetail, getSelectedDetail, removeSelectedMovies} from '../../features/movies/movieSlice';
+import {removeSelectedMovies, fetchAsyncDetailSeries, getSelectedDetailSeries } from '../../features/movies/movieSlice';
 
-const MovieDetail = () => {
+const MovieDetailSeries = () => {
   const {id} = useParams();
   const dispatch = useDispatch();
-  const data = useSelector(getSelectedDetail);
+  const data = useSelector(getSelectedDetailSeries);
   console.log(data);
   useEffect(() => {
-    dispatch(fetchAsyncDetail(id));
+    dispatch(fetchAsyncDetailSeries(id));
     return () => {dispatch(removeSelectedMovies());}
   }, [dispatch, id]);
   
@@ -27,7 +27,7 @@ const MovieDetail = () => {
       :(
       <>
       <div className='section-left'>
-        <div className='movie-title'>{data.title }</div>
+        <div className='movie-title'>{data.name }</div>
         <div className='movie-rating'>
           <span>
             IMDB Rating <i className='fa fa-star'></i> : {data.vote_average}
@@ -54,7 +54,7 @@ const MovieDetail = () => {
         </div>
         <div>
           <span>Original title :</span>
-          <span>{data.original_title}</span>
+          <span>{data.original_name}</span>
         </div>
         <div>
           <span>Tagline :</span>
@@ -82,4 +82,4 @@ const MovieDetail = () => {
   
 };
 
-export default MovieDetail;
+export default MovieDetailSeries;

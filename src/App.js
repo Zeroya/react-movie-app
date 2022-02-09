@@ -5,7 +5,9 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
 import MovieDetail from "./components/MovieDetail/MovieDetail";
+import MovieDetailSeries from "./components/MovieDetail/MovieDetailSeries";
 import SearchModel from './components/postLinks/SearchModel';
+import SeriesModal from './components/postLinks/SeriesModal';
 import TopModelThisIsRealSearch from './components/postLinks/TopModelThisIsRealSearch';
 import { useDispatch } from 'react-redux';
 import {fetchAsyncTopRated, fetchAsyncSearch } from '../src/features/movies/movieSlice'
@@ -26,8 +28,11 @@ function App() {
           <Route path="/" exact element={<Home />} />
           <Route path="/popular" element={<Home />} />
           <Route path="/top" element={<SearchModel />} />
+          <Route path="/favorite" element={<SearchModel />} />
+          <Route path="/series" element={<SeriesModal />} />
           <Route path="/search" element={<TopModelThisIsRealSearch />} />
           <Route path="/movie/:id" element={<MovieDetail />} />
+          <Route path="/serial/:id" element={<MovieDetailSeries />} />
           <Route path="*" element={<PageNotFound />} />
           </Routes>
         </div>

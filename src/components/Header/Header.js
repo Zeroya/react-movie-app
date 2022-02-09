@@ -35,6 +35,9 @@ const Header = () => {
       <div className='dropdown-btn' onClick={e => setIsActive(!isActive)}>Choose One &#11167; </div>
       {isActive && (
         <div className='dropdown-content' onClick={e => setIsActive(false)}>
+          <div className='dropdown-item'>
+          <Link to='/search' onClick={e => setItTrue(true)} onChange={dispatch(fetchAsyncSearch("naruto"))}>Search</Link>
+        </div>
         <div className='dropdown-item'>
           <Link to='/popular' onClick={e => setItTrue(false)}>Popular</Link>
         </div>
@@ -42,7 +45,10 @@ const Header = () => {
           <Link to='/top' onClick={e => setItTrue(false)}>Top Rated</Link>
         </div>
         <div className='dropdown-item'>
-          <Link to='/search' onClick={e => setItTrue(true)} onChange={dispatch(fetchAsyncSearch("naruto"))}>Search</Link>
+          <Link to='/series' onClick={e => setItTrue(false)}>Series</Link>
+        </div>
+        <div className='dropdown-item'>
+          <Link to='/favorite' onClick={e => setItTrue(false)}>Favorite </Link>
         </div>
       </div>
       )}

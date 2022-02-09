@@ -18,7 +18,7 @@ const SearchModel = () => {
   }, [page]);
 
   const receiveFilms = () => {
-    setPage(page + 1);
+    setTimeout(() => setPage(page + 1) , [1000])
   };
 
   renderTopRated =
