@@ -16,14 +16,14 @@ const SeriesModal = () => {
   }, [page]);
 
   const receiveFilms = () => {
-    setTimeout(() => setPage(page + 1) , [1000])
+    setTimeout(() => setPage(page + 1), [1000]);
   };
 
   return (
     <div>
       <div className="movie-wrapper">
         <div className="toprated-list">
-          <h2>Top Rated Movies</h2>
+          <h2>Top Rated Series</h2>
           <InfiniteScroll
             className="movie-container"
             dataLength={TopSeries.length}

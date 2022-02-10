@@ -7,22 +7,6 @@ import "../MovieListing/MovieListing.scss";
 
 const TopModelThisIsRealSearch = () => {
   const search = useSelector(getSearchMovie);
-  let renderSearch = "";
-  let Response = "True";
-  
-
-  renderSearch =
-    Response === "True" ? (
-      search.results &&
-      search.results.map((movie, index) => (
-        <MovieCard key={index} data={movie} />
-      ))
-    ) : (
-      <div className="movies-error">
-        <h3>{TopModelThisIsRealSearch.Error}</h3>
-        {(renderSearch = "Loading...")}
-      </div>
-    );
 
   return (
     <div>

@@ -1,9 +1,20 @@
-import React from 'react';
+import React, {useState } from 'react';
 import "./MovieCard.scss";
 import {Link} from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { toggleToFavorites } from '../../features/movies/movieSlice';
 
 const MovieCard = (props) => {
   const {data} = props;
+  const dispatch = useDispatch();
+  const [isActive , setIsActive] = useState(false);
+
+  const handleMarkToFavorite = () => {
+    dispatch(toggleToFavorites(data)); 
+  }
+
+
+
   return (
     <div className="card-item">
       <Link to={`/movie/${data.id}`}>
@@ -21,6 +32,9 @@ const MovieCard = (props) => {
       </div>
       <div className='movie-over'><h2>overview</h2> <p>{data.overview}</p></div>
       </Link>
+      <div onClick={e => setIsActive(!isActive)} >
+      <div className={isActive ? 'heart-active' : 'heart'} onClick={handleMarkToFavorite}>&#9829;</div>
+      </div>
     </div>
   );
 };

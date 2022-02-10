@@ -17,10 +17,10 @@
 
   .dropdown-content {
     position: absolute;
-    z-index:99999999; 
+    z-index: 99999999;
     top: 110%;
     background: $secondary-color;
-    box-shadow: 3px 3px 10px 6px rgba(0,0,0,0.16);
+    box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.16);
     font-weight: 500;
     width: 100%;
 
@@ -30,9 +30,19 @@
       transition: all 0.2s;
 
       &:hover {
-        background:rgba(15, 15, 15, 0.288);
+        background: rgba(15, 15, 15, 0.288);
       }
     }
   }
 
+}
+
+
+.btn-favorite {
+  background: rgb(45, 0, 68) !important;
+  box-shadow: 3px 3px 10px 6px rgba(19, 0, 29, 0.46) !important;
+}
+
+.btn-nodrop {
+  width: 100px !important;
 }

@@ -3,21 +3,13 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchAsyncMovies } from "../../features/movies/movieSlice";
 import { getAllMovies } from "../../features/movies/movieSlice";
-import {
-  getAllTopRated,
-  getSearchMovie,
-} from "../../features/movies/movieSlice";
+
 import MovieCard from "../MovieCard/MovieCard";
 import "./MovieListing.scss";
 
 const MovieListing = () => {
   const movies = useSelector(getAllMovies);
-  const search = useSelector(getSearchMovie);
-  const TopRated = useSelector(getAllTopRated);
-  let renderMovies,
-    renderTopRated,
-    renderSearch = "";
-  let Response = "True";
+
   const dispatch = useDispatch();
   const [page, setPage] = useState(1);
 
@@ -26,49 +18,8 @@ const MovieListing = () => {
   }, [page]);
 
   const receiveFilms = () => {
-    setTimeout(() => setPage(page + 1) , [1000])
+    setTimeout(() => setPage(page + 1), [1000]);
   };
-
-  {
-    renderMovies =
-      Response === "True" ? (
-        movies.results &&
-        movies.results.map((movie, index) => (
-          <MovieCard key={index} data={movie} />
-        ))
-      ) : (
-        <div className="movies-error">
-          <h3>{movies.Error}</h3>
-          {(renderMovies = "Loading...")}
-        </div>
-      );
-  }
-
-  renderTopRated =
-    Response === "True" ? (
-      TopRated.results &&
-      TopRated.results.map((movie, index) => (
-        <MovieCard key={index} data={movie} />
-      ))
-    ) : (
-      <div className="movies-error">
-        <h3>{movies.Error}</h3>
-        {(renderTopRated = "Loading...")}
-      </div>
-    );
-
-  renderSearch =
-    Response === "True" ? (
-      search.results &&
-      search.results.map((movie, index) => (
-        <MovieCard key={index} data={movie} />
-      ))
-    ) : (
-      <div className="movies-error">
-        <h3>{movies.Error}</h3>
-        {(renderSearch = "Loading...")}
-      </div>
-    );
 
   return (
     <div className="movie-wrapper">
